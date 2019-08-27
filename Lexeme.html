@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Lexeme &#8212; LexData  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="LexData.languages" href="Languages.html" />
+    <link rel="prev" title="LexData" href="LexData.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="lexeme">
+<h1>Lexeme<a class="headerlink" href="#lexeme" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="LexData.Lexeme">
+<em class="property">class </em><code class="sig-prename descclassname">LexData.</code><code class="sig-name descname">Lexeme</code><span class="sig-paren">(</span><em class="sig-param">repo: LexData.WikidataSession</em>, <em class="sig-param">idLex: str</em><span class="sig-paren">)</span><a class="headerlink" href="#LexData.Lexeme" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+<p>Wrapper around a dict to represent a Lexeme</p>
+<dl class="method">
+<dt id="LexData.Lexeme.claims">
+<em class="property">property </em><code class="sig-name descname">claims</code><a class="headerlink" href="#LexData.Lexeme.claims" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="LexData.Lexeme.createClaims">
+<code class="sig-name descname">createClaims</code><span class="sig-paren">(</span><em class="sig-param">claims</em><span class="sig-paren">)</span><a class="headerlink" href="#LexData.Lexeme.createClaims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add claims to the Lexeme</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>claims</strong> – The set of claims to be added</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="LexData.Lexeme.createForm">
+<code class="sig-name descname">createForm</code><span class="sig-paren">(</span><em class="sig-param">form: str</em>, <em class="sig-param">infosGram: str</em>, <em class="sig-param">language: LexData.Language = None</em>, <em class="sig-param">claims=None</em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#LexData.Lexeme.createForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a form for the lexeme</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>form</strong> – the new form to add</p></li>
+<li><p><strong>infosGram</strong> – grammatical features</p></li>
+<li><p><strong>language</strong> – the language of the form</p></li>
+<li><p><strong>claims</strong> – claims to add to the new form (Default value = None) -&gt; st)</p></li>
+<li><p><strong>form</strong> – str:</p></li>
+<li><p><strong>infosGram</strong> – str:</p></li>
+<li><p><strong>language</strong> – Language:  (Default value = None)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="LexData.Lexeme.createSense">
+<code class="sig-name descname">createSense</code><span class="sig-paren">(</span><em class="sig-param">glosses: Dict[str, str], claims=None</em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#LexData.Lexeme.createSense" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a sense for the lexeme</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>glosses</strong> – glosses for the sense</p></li>
+<li><p><strong>claims</strong> – claims to add to the new form (Default value = None) -&gt; st)</p></li>
+<li><p><strong>glosses</strong> – Dict[str:</p></li>
+<li><p><strong>str</strong><strong>]</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="LexData.Lexeme.forms">
+<em class="property">property </em><code class="sig-name descname">forms</code><a class="headerlink" href="#LexData.Lexeme.forms" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="LexData.Lexeme.getLex">
+<code class="sig-name descname">getLex</code><span class="sig-paren">(</span><em class="sig-param">idLex: str</em><span class="sig-paren">)</span><a class="headerlink" href="#LexData.Lexeme.getLex" title="Permalink to this definition">¶</a></dt>
+<dd><p>this function gets and returns the data of a lexeme for a given id</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>idLex</strong> – Lexeme identifier (example: “L2”)</p></li>
+<li><p><strong>idLex</strong> – str:</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>s: Simplified object representation of Lexeme</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="LexData.Lexeme.language">
+<em class="property">property </em><code class="sig-name descname">language</code><a class="headerlink" href="#LexData.Lexeme.language" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="LexData.Lexeme.lemma">
+<em class="property">property </em><code class="sig-name descname">lemma</code><a class="headerlink" href="#LexData.Lexeme.lemma" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="LexData.Lexeme.senses">
+<em class="property">property </em><code class="sig-name descname">senses</code><a class="headerlink" href="#LexData.Lexeme.senses" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">LexData</a></h1>
+
+
+
+<p class="blurb">Edit Wikidatas Lexemes</p>
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=Nudin&repo=LexData&type=star&count=False&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="LexData.html">LexData</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Lexeme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Languages.html">LexData.languages</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="LexData.html" title="previous chapter">LexData</a></li>
+      <li>Next: <a href="Languages.html" title="next chapter">LexData.languages</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Michael F. Schönitzer.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/Lexeme.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

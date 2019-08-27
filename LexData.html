@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>LexData &#8212; LexData  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Lexeme" href="Lexeme.html" />
+    <link rel="prev" title="Welcome to LexData’s documentation!" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="lexdata">
+<h1>LexData<a class="headerlink" href="#lexdata" title="Permalink to this headline">¶</a></h1>
+<p>The central Class for working with LexData is the Class Lexeme, it documented
+on a separate page:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="Lexeme.html"><span class="doc">Lexeme</span></a></p></li>
+</ul>
+<div class="section" id="module-LexData">
+<span id="other-classes-and-functions"></span><h2>Other Classes and Functions<a class="headerlink" href="#module-LexData" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="LexData.Claim">
+<em class="property">class </em><code class="sig-prename descclassname">LexData.</code><code class="sig-name descname">Claim</code><span class="sig-paren">(</span><em class="sig-param">claim: Dict</em><span class="sig-paren">)</span><a class="headerlink" href="#LexData.Claim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+<p>Wrapper around a dict to represent a Claim</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="LexData.Form">
+<em class="property">class </em><code class="sig-prename descclassname">LexData.</code><code class="sig-name descname">Form</code><span class="sig-paren">(</span><em class="sig-param">form: Dict</em><span class="sig-paren">)</span><a class="headerlink" href="#LexData.Form" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+<p>Wrapper around a dict to represent a From</p>
+<dl class="method">
+<dt id="LexData.Form.claims">
+<code class="sig-name descname">claims</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Dict[str, List[LexData.Claim]]<a class="headerlink" href="#LexData.Form.claims" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="LexData.Form.form">
+<code class="sig-name descname">form</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#LexData.Form.form" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="LexData.Language">
+<em class="property">class </em><code class="sig-prename descclassname">LexData.</code><code class="sig-name descname">Language</code><span class="sig-paren">(</span><em class="sig-param">short: str</em>, <em class="sig-param">qid: str</em><span class="sig-paren">)</span><a class="headerlink" href="#LexData.Language" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Dataclass representing a language</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="LexData.Sense">
+<em class="property">class </em><code class="sig-prename descclassname">LexData.</code><code class="sig-name descname">Sense</code><span class="sig-paren">(</span><em class="sig-param">form: Dict</em><span class="sig-paren">)</span><a class="headerlink" href="#LexData.Sense" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+<p>Wrapper around a dict to represent a Sense</p>
+<dl class="method">
+<dt id="LexData.Sense.claims">
+<code class="sig-name descname">claims</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Dict[str, List[LexData.Claim]]<a class="headerlink" href="#LexData.Sense.claims" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="LexData.Sense.glosse">
+<code class="sig-name descname">glosse</code><span class="sig-paren">(</span><em class="sig-param">lang='en'</em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#LexData.Sense.glosse" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="LexData.WikidataSession">
+<em class="property">class </em><code class="sig-prename descclassname">LexData.</code><code class="sig-name descname">WikidataSession</code><span class="sig-paren">(</span><em class="sig-param">username: str</em>, <em class="sig-param">password: str</em>, <em class="sig-param">user_agent='LexData 0.1.1'</em><span class="sig-paren">)</span><a class="headerlink" href="#LexData.WikidataSession" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Wikidata network and authentication session. Needed for everything this
+framework does.</p>
+<dl class="attribute">
+<dt id="LexData.WikidataSession.URL">
+<code class="sig-name descname">URL</code><em class="property"> = 'https://www.wikidata.org/w/api.php'</em><a class="headerlink" href="#LexData.WikidataSession.URL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="LexData.WikidataSession.get">
+<code class="sig-name descname">get</code><span class="sig-paren">(</span><em class="sig-param">data: Dict[str, str]</em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#LexData.WikidataSession.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a GET request to wikidata</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – Parameters to send via GET</p></li>
+<li><p><strong>data</strong> – Dict[str:</p></li>
+<li><p><strong>-&gt; An</strong> (<em>str</em><em>]</em><em>)</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Answer form the server as Objekt</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="LexData.WikidataSession.login">
+<code class="sig-name descname">login</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#LexData.WikidataSession.login" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="LexData.WikidataSession.post">
+<code class="sig-name descname">post</code><span class="sig-paren">(</span><em class="sig-param">data: Dict[str, str]</em><span class="sig-paren">)</span> &#x2192; Any<a class="headerlink" href="#LexData.WikidataSession.post" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send data to wikidata by POST request. The CSRF token is automatically
+filled in if __AUTO__ is given instead.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – Parameters to send via POST</p></li>
+<li><p><strong>data</strong> – Dict[str:</p></li>
+<li><p><strong>-&gt; An</strong> (<em>str</em><em>]</em><em>)</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Answer form the server as Objekt</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="LexData.create_lexeme">
+<code class="sig-prename descclassname">LexData.</code><code class="sig-name descname">create_lexeme</code><span class="sig-paren">(</span><em class="sig-param">repo</em>, <em class="sig-param">lemma: str</em>, <em class="sig-param">lang: LexData.Language</em>, <em class="sig-param">catLex: str</em>, <em class="sig-param">claims=None</em><span class="sig-paren">)</span> &#x2192; LexData.Lexeme<a class="headerlink" href="#LexData.create_lexeme" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a lexeme</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lemma</strong> – value of the lexeme</p></li>
+<li><p><strong>lang</strong> – language</p></li>
+<li><p><strong>catLex</strong> – lexicographical category</p></li>
+<li><p><strong>claims</strong> – claims to add to the lexeme (Default value = None) -&gt; Lexem)</p></li>
+<li><p><strong>repo</strong> – </p></li>
+<li><p><strong>lemma</strong> – str:</p></li>
+<li><p><strong>lang</strong> – Language:</p></li>
+<li><p><strong>catLex</strong> – str:</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>s: Object of type Lexeme</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="LexData.get_or_create_lexeme">
+<code class="sig-prename descclassname">LexData.</code><code class="sig-name descname">get_or_create_lexeme</code><span class="sig-paren">(</span><em class="sig-param">repo</em>, <em class="sig-param">lemma: str</em>, <em class="sig-param">lang: LexData.Language</em>, <em class="sig-param">catLex: str</em><span class="sig-paren">)</span> &#x2192; LexData.Lexeme<a class="headerlink" href="#LexData.get_or_create_lexeme" title="Permalink to this definition">¶</a></dt>
+<dd><p>Search for a lexeme in wikidata if not found, create it</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>repo</strong> – WikidataSession</p></li>
+<li><p><strong>lemma</strong> – the lemma of the lexeme</p></li>
+<li><p><strong>lang</strong> – language of the lexeme</p></li>
+<li><p><strong>catLex</strong> – lexical Category of the lexeme</p></li>
+<li><p><strong>lemma</strong> – str:</p></li>
+<li><p><strong>lang</strong> – Language:</p></li>
+<li><p><strong>catLex</strong> – str) -&gt; Lexem:</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>s: Lexeme with the specified properties</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">LexData</a></h1>
+
+
+
+<p class="blurb">Edit Wikidatas Lexemes</p>
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=Nudin&repo=LexData&type=star&count=False&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">LexData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lexeme.html">Lexeme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Languages.html">LexData.languages</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Welcome to LexData’s documentation!</a></li>
+      <li>Next: <a href="Lexeme.html" title="next chapter">Lexeme</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2019, Michael F. Schönitzer.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/LexData.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
