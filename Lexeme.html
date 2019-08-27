@@ -42,7 +42,13 @@
 <dl class="method">
 <dt id="LexData.Lexeme.claims">
 <em class="property">property </em><code class="sig-name descname">claims</code><a class="headerlink" href="#LexData.Lexeme.claims" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>All the claims of the lexeme</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dict[str, List[<a class="reference internal" href="LexData.html#LexData.Claim" title="LexData.Claim">Claim</a>]]</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="method">
 <dt id="LexData.Lexeme.createClaims">
@@ -62,14 +68,17 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>form</strong> – the new form to add</p></li>
-<li><p><strong>infosGram</strong> – grammatical features</p></li>
-<li><p><strong>language</strong> – the language of the form</p></li>
+<li><p><strong>form</strong> (<em>str</em>) – the new form to add</p></li>
+<li><p><strong>infosGram</strong> (<em>str</em>) – grammatical features</p></li>
+<li><p><strong>language</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="LexData.html#LexData.Language" title="LexData.Language"><em>Language</em></a><em>]</em>) – the language of the form</p></li>
 <li><p><strong>claims</strong> – claims to add to the new form (Default value = None) -&gt; st)</p></li>
-<li><p><strong>form</strong> – str:</p></li>
-<li><p><strong>infosGram</strong> – str:</p></li>
-<li><p><strong>language</strong> – Language:  (Default value = None)</p></li>
 </ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The id of the form</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
@@ -81,11 +90,12 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>glosses</strong> – glosses for the sense</p></li>
+<li><p><strong>glosses</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em>) – glosses for the sense</p></li>
 <li><p><strong>claims</strong> – claims to add to the new form (Default value = None) -&gt; st)</p></li>
-<li><p><strong>glosses</strong> – Dict[str:</p></li>
-<li><p><strong>str</strong><strong>]</strong> – </p></li>
 </ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
 </dd>
 </dl>
 </dd></dl>
@@ -93,7 +103,13 @@
 <dl class="method">
 <dt id="LexData.Lexeme.forms">
 <em class="property">property </em><code class="sig-name descname">forms</code><a class="headerlink" href="#LexData.Lexeme.forms" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>List of all forms</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="LexData.html#LexData.Form" title="LexData.Form">Form</a>]</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="method">
 <dt id="LexData.Lexeme.getLex">
@@ -101,13 +117,10 @@
 <dd><p>this function gets and returns the data of a lexeme for a given id</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>idLex</strong> – Lexeme identifier (example: “L2”)</p></li>
-<li><p><strong>idLex</strong> – str:</p></li>
-</ul>
+<dd class="field-odd"><p><strong>idLex</strong> (<em>str</em>) – Lexeme identifier (example: “L2”)</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>s: Simplified object representation of Lexeme</p>
+<dd class="field-even"><p>Simplified object representation of Lexeme</p>
 </dd>
 </dl>
 </dd></dl>
@@ -115,17 +128,35 @@
 <dl class="method">
 <dt id="LexData.Lexeme.language">
 <em class="property">property </em><code class="sig-name descname">language</code><a class="headerlink" href="#LexData.Lexeme.language" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>the language code of the lexeme as string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="method">
 <dt id="LexData.Lexeme.lemma">
 <em class="property">property </em><code class="sig-name descname">lemma</code><a class="headerlink" href="#LexData.Lexeme.lemma" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>the lemma of the lexeme as string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="method">
 <dt id="LexData.Lexeme.senses">
 <em class="property">property </em><code class="sig-name descname">senses</code><a class="headerlink" href="#LexData.Lexeme.senses" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>List of all senses</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="LexData.html#LexData.Sense" title="LexData.Sense">Sense</a>]</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 

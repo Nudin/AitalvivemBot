@@ -56,12 +56,24 @@ on a separate page:</p>
 <dl class="method">
 <dt id="LexData.Form.claims">
 <code class="sig-name descname">claims</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Dict[str, List[LexData.Claim]]<a class="headerlink" href="#LexData.Form.claims" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>All the claims of the Form</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dict[str, List[<a class="reference internal" href="#LexData.Claim" title="LexData.Claim">Claim</a>]]</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="method">
 <dt id="LexData.Form.form">
 <code class="sig-name descname">form</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#LexData.Form.form" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>String of the form value (“representation”)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -80,12 +92,28 @@ on a separate page:</p>
 <dl class="method">
 <dt id="LexData.Sense.claims">
 <code class="sig-name descname">claims</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Dict[str, List[LexData.Claim]]<a class="headerlink" href="#LexData.Sense.claims" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>All the claims of the Sense</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dict[str, List[<a class="reference internal" href="#LexData.Claim" title="LexData.Claim">Claim</a>]]</p>
+</dd>
+</dl>
+</dd></dl>
 
 <dl class="method">
 <dt id="LexData.Sense.glosse">
 <code class="sig-name descname">glosse</code><span class="sig-paren">(</span><em class="sig-param">lang='en'</em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#LexData.Sense.glosse" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>The gloss of the text in the specified language is available, otherwise
+in englisch, and if that’s not set too in an arbitrary set language</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>lang</strong> (<em>str</em>) – language code of the wished language</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
 
 </dd></dl>
 
@@ -106,14 +134,13 @@ framework does.</p>
 <dd><p>Send a GET request to wikidata</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> – Parameters to send via GET</p></li>
-<li><p><strong>data</strong> – Dict[str:</p></li>
-<li><p><strong>-&gt; An</strong> (<em>str</em><em>]</em><em>)</em>) – </p></li>
-</ul>
+<dd class="field-odd"><p><strong>data</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em>) – Parameters to send via GET</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Answer form the server as Objekt</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Any</p>
 </dd>
 </dl>
 </dd></dl>
@@ -130,14 +157,13 @@ framework does.</p>
 filled in if __AUTO__ is given instead.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> – Parameters to send via POST</p></li>
-<li><p><strong>data</strong> – Dict[str:</p></li>
-<li><p><strong>-&gt; An</strong> (<em>str</em><em>]</em><em>)</em>) – </p></li>
-</ul>
+<dd class="field-odd"><p><strong>data</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em><em>)</em>) – Parameters to send via POST</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Answer form the server as Objekt</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Any</p>
 </dd>
 </dl>
 </dd></dl>
@@ -151,18 +177,18 @@ filled in if __AUTO__ is given instead.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>lemma</strong> – value of the lexeme</p></li>
-<li><p><strong>lang</strong> – language</p></li>
-<li><p><strong>catLex</strong> – lexicographical category</p></li>
+<li><p><strong>repo</strong> (<a class="reference internal" href="#LexData.WikidataSession" title="LexData.WikidataSession"><em>WikidataSession</em></a>) – Wikidata Session</p></li>
+<li><p><strong>lemma</strong> (<em>str</em>) – value of the lexeme</p></li>
+<li><p><strong>lang</strong> (<a class="reference internal" href="#LexData.Language" title="LexData.Language"><em>Language</em></a>) – language</p></li>
+<li><p><strong>catLex</strong> (<em>str</em>) – lexicographical category</p></li>
 <li><p><strong>claims</strong> – claims to add to the lexeme (Default value = None) -&gt; Lexem)</p></li>
-<li><p><strong>repo</strong> – </p></li>
-<li><p><strong>lemma</strong> – str:</p></li>
-<li><p><strong>lang</strong> – Language:</p></li>
-<li><p><strong>catLex</strong> – str:</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>s: Object of type Lexeme</p>
+<dd class="field-even"><p>The created Lexeme</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="Lexeme.html#LexData.Lexeme" title="LexData.Lexeme">Lexeme</a></p>
 </dd>
 </dl>
 </dd></dl>
@@ -174,17 +200,17 @@ filled in if __AUTO__ is given instead.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>repo</strong> – WikidataSession</p></li>
-<li><p><strong>lemma</strong> – the lemma of the lexeme</p></li>
-<li><p><strong>lang</strong> – language of the lexeme</p></li>
-<li><p><strong>catLex</strong> – lexical Category of the lexeme</p></li>
-<li><p><strong>lemma</strong> – str:</p></li>
-<li><p><strong>lang</strong> – Language:</p></li>
-<li><p><strong>catLex</strong> – str) -&gt; Lexem:</p></li>
+<li><p><strong>repo</strong> (<a class="reference internal" href="#LexData.WikidataSession" title="LexData.WikidataSession"><em>WikidataSession</em></a>) – Wikidata Session</p></li>
+<li><p><strong>lemma</strong> (<em>str</em>) – the lemma of the lexeme</p></li>
+<li><p><strong>lang</strong> (<a class="reference internal" href="#LexData.Language" title="LexData.Language"><em>Language</em></a>) – language of the lexeme</p></li>
+<li><p><strong>catLex</strong> (<em>str</em>) – lexical Category of the lexeme</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>s: Lexeme with the specified properties</p>
+<dd class="field-even"><p>Lexeme with the specified properties (created or found)</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="Lexeme.html#LexData.Lexeme" title="LexData.Lexeme">Lexeme</a></p>
 </dd>
 </dl>
 </dd></dl>
