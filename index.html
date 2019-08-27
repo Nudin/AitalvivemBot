@@ -64,6 +64,20 @@ a single line of code that wasn’t rewritten.</p>
 
 <span class="c1"># Find or create a Lexeme by lemma, language and grammatical form</span>
 <span class="n">L2</span> <span class="o">=</span> <span class="n">LexData</span><span class="o">.</span><span class="n">get_or_create_lexeme</span><span class="p">(</span><span class="n">repo</span><span class="p">,</span> <span class="s2">&quot;first&quot;</span><span class="p">,</span> <span class="n">en</span><span class="p">,</span> <span class="s2">&quot;Q1084&quot;</span><span class="p">)</span>
+
+<span class="c1"># You can easily create forms…</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">L2</span><span class="o">.</span><span class="n">forms</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">L2</span><span class="o">.</span><span class="n">createForm</span><span class="p">(</span><span class="s2">&quot;firsts&quot;</span><span class="p">,</span> <span class="s2">&quot;Q146786&quot;</span><span class="p">)</span>
+
+<span class="c1"># …or senses, with or without additional claims</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">L2</span><span class="o">.</span><span class="n">senses</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">L2</span><span class="o">.</span><span class="n">createSense</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Element in an ordered list which comes before all others according to the ordering&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;de&quot;</span><span class="p">:</span> <span class="s2">&quot;einer Ordnung folgend das Element vor allen anderen&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="n">claims</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;P5137&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Q19269277&quot;</span><span class="p">]},</span>
+    <span class="p">)</span>
 </pre></div>
 </div>
 <div class="toctree-wrapper compound">
