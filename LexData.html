@@ -46,6 +46,76 @@ on a separate page:</p>
 <em class="property">class </em><code class="sig-prename descclassname">LexData.</code><code class="sig-name descname">Claim</code><span class="sig-paren">(</span><em class="sig-param">claim: Dict</em><span class="sig-paren">)</span><a class="headerlink" href="#LexData.Claim" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
 <p>Wrapper around a dict to represent a Claim</p>
+<dl class="method">
+<dt id="LexData.Claim.numeric_rank">
+<em class="property">property </em><code class="sig-name descname">numeric_rank</code><a class="headerlink" href="#LexData.Claim.numeric_rank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the rank of the claim as integer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="LexData.Claim.property">
+<em class="property">property </em><code class="sig-name descname">property</code><a class="headerlink" href="#LexData.Claim.property" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the property of the claim.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="LexData.Claim.property_decorator">
+<code class="sig-name descname">property_decorator</code><a class="headerlink" href="#LexData.Claim.property_decorator" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.property</span></code></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="LexData.Claim.pure_value">
+<em class="property">property </em><code class="sig-name descname">pure_value</code><a class="headerlink" href="#LexData.Claim.pure_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return just the ‘pure’ value, what this is depends on the type of the value:
+- wikibase-entity: the id, including ‘L/Q/P’-prefix
+- string: the string
+- manolingualtext: the text as string
+- quantity: the amount as float
+- time: the timestamp as string in format ISO 8601
+- globecoordinate: tuple of latitude and longitude as floats</p>
+<p>Be aware that for most types this is not the full information stored in
+the value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="LexData.Claim.rank">
+<em class="property">property </em><code class="sig-name descname">rank</code><a class="headerlink" href="#LexData.Claim.rank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the rank of the claim.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="LexData.Claim.type">
+<em class="property">property </em><code class="sig-name descname">type</code><a class="headerlink" href="#LexData.Claim.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the data type of the claim.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="LexData.Claim.value">
+<em class="property">property </em><code class="sig-name descname">value</code><a class="headerlink" href="#LexData.Claim.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value of the claim. The type depends on the data type.</p>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="class">
@@ -119,13 +189,18 @@ in englisch, and if that’s not set too in an arbitrary set language</p>
 
 <dl class="class">
 <dt id="LexData.WikidataSession">
-<em class="property">class </em><code class="sig-prename descclassname">LexData.</code><code class="sig-name descname">WikidataSession</code><span class="sig-paren">(</span><em class="sig-param">username: str</em>, <em class="sig-param">password: str</em>, <em class="sig-param">user_agent='LexData 0.1.1'</em><span class="sig-paren">)</span><a class="headerlink" href="#LexData.WikidataSession" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">LexData.</code><code class="sig-name descname">WikidataSession</code><span class="sig-paren">(</span><em class="sig-param">username: Optional[str] = None</em>, <em class="sig-param">password: Optional[str] = None</em>, <em class="sig-param">token: Optional[str] = None</em>, <em class="sig-param">auth: Optional[str] = None</em>, <em class="sig-param">user_agent='LexData 0.1.8'</em><span class="sig-paren">)</span><a class="headerlink" href="#LexData.WikidataSession" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Wikidata network and authentication session. Needed for everything this
 framework does.</p>
 <dl class="attribute">
 <dt id="LexData.WikidataSession.URL">
 <code class="sig-name descname">URL</code><em class="property"> = 'https://www.wikidata.org/w/api.php'</em><a class="headerlink" href="#LexData.WikidataSession.URL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="LexData.WikidataSession.assertUser">
+<code class="sig-name descname">assertUser</code><em class="property"> = None</em><a class="headerlink" href="#LexData.WikidataSession.assertUser" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
