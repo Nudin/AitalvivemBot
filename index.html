@@ -56,18 +56,18 @@ a single line of code that wasn’t rewritten.</p>
 <span class="c1"># and Forms</span>
 <span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">L2</span><span class="o">.</span><span class="n">forms</span><span class="p">))</span>
 <span class="n">F1</span> <span class="o">=</span> <span class="n">L2</span><span class="o">.</span><span class="n">forms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">F1</span><span class="o">.</span><span class="n">claims</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">F1</span><span class="o">.</span><span class="n">claims</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">)</span>
 <span class="c1"># and senses</span>
 <span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">L2</span><span class="o">.</span><span class="n">senses</span><span class="p">))</span>
 <span class="n">S1</span> <span class="o">=</span> <span class="n">L2</span><span class="o">.</span><span class="n">senses</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">S1</span><span class="o">.</span><span class="n">claims</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">S1</span><span class="o">.</span><span class="n">claims</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">)</span>
 
 <span class="c1"># Find or create a Lexeme by lemma, language and grammatical form</span>
 <span class="n">L2</span> <span class="o">=</span> <span class="n">LexData</span><span class="o">.</span><span class="n">get_or_create_lexeme</span><span class="p">(</span><span class="n">repo</span><span class="p">,</span> <span class="s2">&quot;first&quot;</span><span class="p">,</span> <span class="n">en</span><span class="p">,</span> <span class="s2">&quot;Q1084&quot;</span><span class="p">)</span>
 
 <span class="c1"># You can easily create forms…</span>
 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">L2</span><span class="o">.</span><span class="n">forms</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="n">L2</span><span class="o">.</span><span class="n">createForm</span><span class="p">(</span><span class="s2">&quot;firsts&quot;</span><span class="p">,</span> <span class="s2">&quot;Q146786&quot;</span><span class="p">)</span>
+    <span class="n">L2</span><span class="o">.</span><span class="n">createForm</span><span class="p">(</span><span class="s2">&quot;firsts&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Q146786&quot;</span><span class="p">])</span>
 
 <span class="c1"># …or senses, with or without additional claims</span>
 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">L2</span><span class="o">.</span><span class="n">senses</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
