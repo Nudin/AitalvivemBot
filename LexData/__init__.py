@@ -588,3 +588,20 @@ def create_lexeme(repo, lemma: str, lang: Language, catLex: str, claims=None) ->
         lexeme.createClaims(claims)
 
     return lexeme
+
+    # Update given Lexeme with given JSON
+    def update_lexeme_by_json(repo,idLex,data_lex):
+    # Send a post to edit a lexeme
+    PARAMS = {
+        "action": "wbeditentity",
+        "format": "json",
+        "bot": "1",
+        "id": idLex, 
+        "token": "__AUTO__",
+        "data": data_lex,
+    }
+
+    DATA = repo.post(PARAMS)
+
+    return idLex
+
