@@ -1,21 +1,21 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>Lexeme &#8212; LexData  documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="LexData.languages" href="Languages.html" />
-    <link rel="prev" title="LexData" href="LexData.html" />
+    <link rel="next" title="Form" href="Form.html" />
+    <link rel="prev" title="Entity" href="Entity.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -23,150 +23,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
-  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="lexeme">
-<h1>Lexeme<a class="headerlink" href="#lexeme" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="LexData.Lexeme">
-<em class="property">class </em><code class="sig-prename descclassname">LexData.</code><code class="sig-name descname">Lexeme</code><span class="sig-paren">(</span><em class="sig-param">repo: LexData.WikidataSession</em>, <em class="sig-param">idLex: str</em><span class="sig-paren">)</span><a class="headerlink" href="#LexData.Lexeme" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
-<p>Wrapper around a dict to represent a Lexeme</p>
-<dl class="method">
-<dt id="LexData.Lexeme.claims">
-<em class="property">property </em><code class="sig-name descname">claims</code><a class="headerlink" href="#LexData.Lexeme.claims" title="Permalink to this definition">¶</a></dt>
-<dd><p>All the claims of the lexeme</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Dict[str, List[<a class="reference internal" href="LexData.html#LexData.Claim" title="LexData.Claim">Claim</a>]]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="LexData.Lexeme.createClaims">
-<code class="sig-name descname">createClaims</code><span class="sig-paren">(</span><em class="sig-param">claims</em><span class="sig-paren">)</span><a class="headerlink" href="#LexData.Lexeme.createClaims" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add claims to the Lexeme</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>claims</strong> – The set of claims to be added</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="LexData.Lexeme.createForm">
-<code class="sig-name descname">createForm</code><span class="sig-paren">(</span><em class="sig-param">form: str, infosGram: List[str], language: LexData.Language = None, claims=None</em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#LexData.Lexeme.createForm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a form for the lexeme</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>form</strong> (<em>str</em>) – the new form to add</p></li>
-<li><p><strong>infosGram</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – grammatical features</p></li>
-<li><p><strong>language</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="LexData.html#LexData.Language" title="LexData.Language"><em>Language</em></a><em>]</em>) – the language of the form</p></li>
-<li><p><strong>claims</strong> – claims to add to the new form (Default value = None) -&gt; st)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The id of the form</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="LexData.Lexeme.createSense">
-<code class="sig-name descname">createSense</code><span class="sig-paren">(</span><em class="sig-param">glosses: Dict[str, str], claims=None</em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#LexData.Lexeme.createSense" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a sense for the lexeme</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>glosses</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em>) – glosses for the sense</p></li>
-<li><p><strong>claims</strong> – claims to add to the new form (Default value = None) -&gt; st)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Return type</dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="LexData.Lexeme.forms">
-<em class="property">property </em><code class="sig-name descname">forms</code><a class="headerlink" href="#LexData.Lexeme.forms" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of all forms</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>List[<a class="reference internal" href="LexData.html#LexData.Form" title="LexData.Form">Form</a>]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="LexData.Lexeme.getLex">
-<code class="sig-name descname">getLex</code><span class="sig-paren">(</span><em class="sig-param">idLex: str</em><span class="sig-paren">)</span><a class="headerlink" href="#LexData.Lexeme.getLex" title="Permalink to this definition">¶</a></dt>
-<dd><p>this function gets and returns the data of a lexeme for a given id</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>idLex</strong> (<em>str</em>) – Lexeme identifier (example: “L2”)</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Simplified object representation of Lexeme</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="LexData.Lexeme.language">
-<em class="property">property </em><code class="sig-name descname">language</code><a class="headerlink" href="#LexData.Lexeme.language" title="Permalink to this definition">¶</a></dt>
-<dd><p>the language code of the lexeme as string</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="LexData.Lexeme.lemma">
-<em class="property">property </em><code class="sig-name descname">lemma</code><a class="headerlink" href="#LexData.Lexeme.lemma" title="Permalink to this definition">¶</a></dt>
-<dd><p>the lemma of the lexeme as string</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>str</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="LexData.Lexeme.senses">
-<em class="property">property </em><code class="sig-name descname">senses</code><a class="headerlink" href="#LexData.Lexeme.senses" title="Permalink to this definition">¶</a></dt>
-<dd><p>List of all senses</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>List[<a class="reference internal" href="LexData.html#LexData.Sense" title="LexData.Sense">Sense</a>]</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-</div>
-
-
-          </div>
-          
-        </div>
-      </div>
+  <div class="document">
+    
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
 <h1 class="logo"><a href="index.html">LexData</a></h1>
@@ -191,16 +49,24 @@
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="LexData.html">LexData</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Lexeme</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Languages.html">LexData.languages</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="Entity.html">Entity</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Lexeme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Form.html">Form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sense.html">Sense</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Claim.html">Claim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Language.html">LexData.language</a></li>
 </ul>
 
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="LexData.html" title="previous chapter">LexData</a></li>
-      <li>Next: <a href="Languages.html" title="next chapter">LexData.languages</a></li>
+  <li><a href="Entity.html">Entity</a><ul>
+      <li>Previous: <a href="Entity.html" title="previous chapter">Entity</a></li>
+      <li>Next: <a href="Form.html" title="next chapter">Form</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>
@@ -213,7 +79,7 @@
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
 
 
 
@@ -224,13 +90,162 @@
 
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="lexeme">
+<h1>Lexeme<a class="headerlink" href="#lexeme" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="LexData.Lexeme">
+<em class="property">class </em><code class="sig-prename descclassname">LexData.</code><code class="sig-name descname">Lexeme</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">repo</span><span class="p">:</span> <span class="n">LexData.wikidatasession.WikidataSession</span></em>, <em class="sig-param"><span class="n">idLex</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LexData.Lexeme" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="Entity.html#LexData.entity.Entity" title="LexData.entity.Entity"><code class="xref py py-class docutils literal notranslate"><span class="pre">LexData.entity.Entity</span></code></a></p>
+<p>Wrapper around a dict to represent a Lexeme</p>
+<dl class="py method">
+<dt id="LexData.Lexeme.createClaims">
+<code class="sig-name descname">createClaims</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">claims</span><span class="p">:</span> <span class="n">Dict<span class="p">[</span>str<span class="p">, </span>List<span class="p">[</span>str<span class="p">]</span><span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LexData.Lexeme.createClaims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add claims to the Lexeme.</p>
+<p>createClaim() is deprecated and might be removed in future versions.
+Use Entity.addClaims() instead.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>claims</strong> – The set of claims to be added</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="LexData.Lexeme.createForm">
+<code class="sig-name descname">createForm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">form</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">infosGram</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">language</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference internal" href="Language.html#LexData.language.Language" title="LexData.language.Language">LexData.language.Language</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">claims</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>List<span class="p">[</span>LexData.claim.Claim<span class="p">]</span><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#LexData.Lexeme.createForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a form for the lexeme.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>form</strong> (<em>str</em>) – the new form to add</p></li>
+<li><p><strong>infosGram</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – grammatical features</p></li>
+<li><p><strong>language</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="Language.html#LexData.language.Language" title="LexData.language.Language"><em>Language</em></a><em>]</em>) – the language of the form</p></li>
+<li><p><strong>claims</strong> – claims to add to the new form</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The id of the form</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="LexData.Lexeme.createSense">
+<code class="sig-name descname">createSense</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">glosses</span><span class="p">:</span> <span class="n">Dict<span class="p">[</span>str<span class="p">, </span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">claims</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>List<span class="p">[</span>LexData.claim.Claim<span class="p">]</span><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#LexData.Lexeme.createSense" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a sense for the lexeme.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>glosses</strong> (<em>Dict</em><em>[</em><em>str</em><em>, </em><em>str</em><em>]</em>) – glosses for the sense</p></li>
+<li><p><strong>claims</strong> – claims to add to the new form</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="LexData.Lexeme.forms">
+<em class="property">property </em><code class="sig-name descname">forms</code><a class="headerlink" href="#LexData.Lexeme.forms" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of all forms</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="Form.html#LexData.Form" title="LexData.Form">Form</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="LexData.Lexeme.getLex">
+<code class="sig-name descname">getLex</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">idLex</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LexData.Lexeme.getLex" title="Permalink to this definition">¶</a></dt>
+<dd><p>This function gets and returns the data of a lexeme for a given id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>idLex</strong> (<em>str</em>) – Lexeme identifier (example: “L2”)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Simplified object representation of Lexeme</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="LexData.Lexeme.language">
+<em class="property">property </em><code class="sig-name descname">language</code><a class="headerlink" href="#LexData.Lexeme.language" title="Permalink to this definition">¶</a></dt>
+<dd><p>The language code of the lexeme as string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="LexData.Lexeme.lemma">
+<em class="property">property </em><code class="sig-name descname">lemma</code><a class="headerlink" href="#LexData.Lexeme.lemma" title="Permalink to this definition">¶</a></dt>
+<dd><p>The lemma of the lexeme as string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="LexData.Lexeme.senses">
+<em class="property">property </em><code class="sig-name descname">senses</code><a class="headerlink" href="#LexData.Lexeme.senses" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of all senses</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>List[<a class="reference internal" href="Sense.html#LexData.Sense" title="LexData.Sense">Sense</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="LexData.Lexeme.update_from_json">
+<code class="sig-name descname">update_from_json</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">data</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">overwrite</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LexData.Lexeme.update_from_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the lexeme from an json-string.</p>
+<p>This is a lower level function usable to save arbitrary modifications
+on a lexeme. The data has to be supplied in the right format by the
+user.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – Data update: See the API documentation about the format.</p></li>
+<li><p><strong>overwrite</strong> – If set the whole entity is replaced by the supplied data</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
     <div class="footer">
       &copy;2019, Michael F. Schönitzer.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

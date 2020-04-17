@@ -1,7 +1,7 @@
 LexData
 =======
 
-The central Class for working with LexData is the Class Lexeme, it documented
+The central Class for working with LexData is the Class Lexeme, it is documented
 on a separate page:
 
 * :doc:`Lexeme`

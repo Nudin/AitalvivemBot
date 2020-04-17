@@ -1,0 +1,174 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Entity &#8212; LexData  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Lexeme" href="Lexeme.html" />
+    <link rel="prev" title="LexData" href="LexData.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">LexData</a></h1>
+
+
+
+<p class="blurb">Edit Wikidatas Lexemes</p>
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=Nudin&repo=LexData&type=star&count=False&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="LexData.html">LexData</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Entity</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Lexeme.html">Lexeme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Form.html">Form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sense.html">Sense</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Claim.html">Claim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Language.html">LexData.language</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="LexData.html" title="previous chapter">LexData</a></li>
+      <li>Next: <a href="Lexeme.html" title="next chapter">Lexeme</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="entity">
+<h1>Entity<a class="headerlink" href="#entity" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<dl class="py class">
+<dt id="LexData.entity.Entity">
+<em class="property">class </em><code class="sig-prename descclassname">LexData.entity.</code><code class="sig-name descname">Entity</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">repo</span><span class="p">:</span> <span class="n">LexData.wikidatasession.WikidataSession</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LexData.entity.Entity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+<p>Base class for all types of entities – currently: Lexeme, Form, Sense.
+Not yet implemented: Item, Property.</p>
+<dl class="py method">
+<dt id="LexData.entity.Entity.addClaims">
+<code class="sig-name descname">addClaims</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">claims</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>List<span class="p">[</span>LexData.claim.Claim<span class="p">]</span><span class="p">, </span>Dict<span class="p">[</span>str<span class="p">, </span>List<span class="p">[</span>str<span class="p">]</span><span class="p">]</span><span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LexData.entity.Entity.addClaims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add claims to the entity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>claims</strong> – <p>The claims to be added to the entity.</p>
+<p>There are two possibilities for this:</p>
+<ul>
+<li><p>A list of Objects of type Claim</p>
+<p>Example: <code class="docutils literal notranslate"><span class="pre">[Claim(propertyId=&quot;P31&quot;,</span> <span class="pre">value=&quot;Q1&quot;)]</span></code></p>
+</li>
+<li><p>A dictionary with the property id as key and lists of
+string formated entity ids as values.</p>
+<p>Example: <code class="docutils literal notranslate"><span class="pre">{&quot;P31&quot;:</span> <span class="pre">[&quot;Q1&quot;,</span> <span class="pre">&quot;Q2&quot;]}</span></code></p>
+</li>
+</ul>
+<p>The first supports all datatypes, whereas the later
+currently only supports datatypes of kind Entity.</p>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="LexData.entity.Entity.claims">
+<em class="property">property </em><code class="sig-name descname">claims</code><a class="headerlink" href="#LexData.entity.Entity.claims" title="Permalink to this definition">¶</a></dt>
+<dd><p>All the claims of the Entity</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dict[str, List[<a class="reference internal" href="Claim.html#LexData.Claim" title="LexData.Claim">Claim</a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="LexData.entity.Entity.id">
+<em class="property">property </em><code class="sig-name descname">id</code><a class="headerlink" href="#LexData.entity.Entity.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2019, Michael F. Schönitzer.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/Entity.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

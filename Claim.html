@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Claim &#8212; LexData  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="LexData.language" href="Language.html" />
+    <link rel="prev" title="Sense" href="Sense.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">LexData</a></h1>
+
+
+
+<p class="blurb">Edit Wikidatas Lexemes</p>
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=Nudin&repo=LexData&type=star&count=False&size=large&v=2"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="LexData.html">LexData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Entity.html">Entity</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Claim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Language.html">LexData.language</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="Sense.html" title="previous chapter">Sense</a></li>
+      <li>Next: <a href="Language.html" title="next chapter">LexData.language</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="claim">
+<h1>Claim<a class="headerlink" href="#claim" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="LexData.Claim">
+<em class="property">class </em><code class="sig-prename descclassname">LexData.</code><code class="sig-name descname">Claim</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">claim</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>Dict<span class="p">[</span>str<span class="p">, </span>Any<span class="p">]</span><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">propertyId</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>str<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>Any<span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LexData.Claim" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
+<p>Wrapper around a dict to represent a Claim</p>
+<p>There are two types of Claim objects:</p>
+<ul class="simple">
+<li><p>Claims that where received from an existing entity.</p></li>
+<li><p>Claims that where created by the user by Claim(propertyId, value) and
+have not yet been uploaded to Wikidata. These are called ‘Detached Claims’,
+since they don’t belong to any entity.  They don’t have an id nor an hash.
+They can be added to an entity by the function Entity.addClaims().</p></li>
+</ul>
+<p>Currently modifications on both types of claims can’t be uploaded, except
+by use of the low level API call Lexeme.update_from_json().</p>
+<dl class="py method">
+<dt id="LexData.Claim.numeric_rank">
+<em class="property">property </em><code class="sig-name descname">numeric_rank</code><a class="headerlink" href="#LexData.Claim.numeric_rank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the rank of the claim as integer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="LexData.Claim.property">
+<em class="property">property </em><code class="sig-name descname">property</code><a class="headerlink" href="#LexData.Claim.property" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the id of the property of the claim.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="LexData.Claim.property_decorator">
+<code class="sig-name descname">property_decorator</code><a class="headerlink" href="#LexData.Claim.property_decorator" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <code class="xref py py-class docutils literal notranslate"><span class="pre">builtins.property</span></code></p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="LexData.Claim.pure_value">
+<em class="property">property </em><code class="sig-name descname">pure_value</code><a class="headerlink" href="#LexData.Claim.pure_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return just the ‘pure’ value, what this is depends on the type of the value:</p>
+<ul class="simple">
+<li><p>wikibase-entity: the id as string, including ‘L/Q/P’-prefix</p></li>
+<li><p>string: the string</p></li>
+<li><p>manolingualtext: the text as string</p></li>
+<li><p>quantity: the amount as float</p></li>
+<li><p>time: the timestamp as string in format ISO 8601</p></li>
+<li><p>globecoordinate: tuple of latitude and longitude as floats</p></li>
+</ul>
+<p>Be aware that for most types this is not the full information stored in
+the value.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="LexData.Claim.rank">
+<em class="property">property </em><code class="sig-name descname">rank</code><a class="headerlink" href="#LexData.Claim.rank" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the rank of the claim.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="LexData.Claim.type">
+<em class="property">property </em><code class="sig-name descname">type</code><a class="headerlink" href="#LexData.Claim.type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the data type of the claim.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="LexData.Claim.value">
+<em class="property">property </em><code class="sig-name descname">value</code><a class="headerlink" href="#LexData.Claim.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value of the claim. The type depends on the data type.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2019, Michael F. Schönitzer.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/Claim.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

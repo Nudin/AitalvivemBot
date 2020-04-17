@@ -1,17 +1,17 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>Welcome to LexData’s documentation! &#8212; LexData  documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="LexData" href="LexData.html" />
@@ -22,87 +22,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
 
   </head><body>
-  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          
-
-          <div class="body" role="main">
-            
-  <div class="section" id="welcome-to-lexdata-s-documentation">
-<h1>Welcome to LexData’s documentation!<a class="headerlink" href="#welcome-to-lexdata-s-documentation" title="Permalink to this headline">¶</a></h1>
-<p>This is a small library to create bots, scripts and tools about Wikidata
-Lexemes. It’s philosophy is to have a transparent thin layer on top of the
-internal datastuctures enriched with convenient functions without hiding the
-power of the access to the internals.</p>
-<p>LexData is still in beta phase and there fore some features are missing and
-functions might be renamed in future.</p>
-<p>The code of AitalvivemBot was used as a starting point, but probably theres not
-a single line of code that wasn’t rewritten.</p>
-<p>A simple demonstration about how easy it is to edit Lexems with LexData:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python3</span>
-<span class="kn">import</span> <span class="nn">LexData</span>
-<span class="kn">from</span> <span class="nn">LexData.languages</span> <span class="kn">import</span> <span class="n">en</span>
-
-<span class="n">repo</span> <span class="o">=</span> <span class="n">LexData</span><span class="o">.</span><span class="n">WikidataSession</span><span class="p">(</span><span class="s2">&quot;MichaelSchoenitzer&quot;</span><span class="p">,</span> <span class="s2">&quot;foobar&quot;</span><span class="p">)</span>
-
-<span class="c1"># Open a Lexeme</span>
-<span class="n">L2</span> <span class="o">=</span> <span class="n">LexData</span><span class="o">.</span><span class="n">Lexeme</span><span class="p">(</span><span class="n">repo</span><span class="p">,</span> <span class="s2">&quot;L2&quot;</span><span class="p">)</span>
-
-<span class="c1"># Access the claims</span>
-<span class="k">print</span><span class="p">(</span><span class="n">L2</span><span class="o">.</span><span class="n">claims</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-<span class="c1"># and Forms</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">L2</span><span class="o">.</span><span class="n">forms</span><span class="p">))</span>
-<span class="n">F1</span> <span class="o">=</span> <span class="n">L2</span><span class="o">.</span><span class="n">forms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">F1</span><span class="o">.</span><span class="n">claims</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">)</span>
-<span class="c1"># and senses</span>
-<span class="k">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">L2</span><span class="o">.</span><span class="n">senses</span><span class="p">))</span>
-<span class="n">S1</span> <span class="o">=</span> <span class="n">L2</span><span class="o">.</span><span class="n">senses</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="k">print</span><span class="p">(</span><span class="n">S1</span><span class="o">.</span><span class="n">claims</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">)</span>
-
-<span class="c1"># Find or create a Lexeme by lemma, language and grammatical form</span>
-<span class="n">L2</span> <span class="o">=</span> <span class="n">LexData</span><span class="o">.</span><span class="n">get_or_create_lexeme</span><span class="p">(</span><span class="n">repo</span><span class="p">,</span> <span class="s2">&quot;first&quot;</span><span class="p">,</span> <span class="n">en</span><span class="p">,</span> <span class="s2">&quot;Q1084&quot;</span><span class="p">)</span>
-
-<span class="c1"># You can easily create forms…</span>
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">L2</span><span class="o">.</span><span class="n">forms</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="n">L2</span><span class="o">.</span><span class="n">createForm</span><span class="p">(</span><span class="s2">&quot;firsts&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Q146786&quot;</span><span class="p">])</span>
-
-<span class="c1"># …or senses, with or without additional claims</span>
-<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">L2</span><span class="o">.</span><span class="n">senses</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-    <span class="n">L2</span><span class="o">.</span><span class="n">createSense</span><span class="p">(</span>
-        <span class="p">{</span>
-            <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Element in an ordered list which comes before all others according to the ordering&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;de&quot;</span><span class="p">:</span> <span class="s2">&quot;einer Ordnung folgend das Element vor allen anderen&quot;</span><span class="p">,</span>
-        <span class="p">},</span>
-        <span class="n">claims</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;P5137&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Q19269277&quot;</span><span class="p">]},</span>
-    <span class="p">)</span>
-</pre></div>
-</div>
-<div class="toctree-wrapper compound">
-<p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="LexData.html">LexData</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lexeme.html">Lexeme</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Languages.html">LexData.languages</a></li>
-</ul>
-</div>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
-<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
-<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
-</ul>
-</div>
-
-
-          </div>
-          
-        </div>
-      </div>
+  <div class="document">
+    
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
 <h1 class="logo"><a href="#">LexData</a></h1>
@@ -127,8 +48,9 @@ a single line of code that wasn’t rewritten.</p>
 <p class="caption"><span class="caption-text">Contents:</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="LexData.html">LexData</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Lexeme.html">Lexeme</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Languages.html">LexData.languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Entity.html">Entity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Claim.html">Claim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Language.html">LexData.language</a></li>
 </ul>
 
 <div class="relations">
@@ -148,7 +70,7 @@ a single line of code that wasn’t rewritten.</p>
     </form>
     </div>
 </div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
+<script>$('#searchbox').show(0);</script>
 
 
 
@@ -159,13 +81,99 @@ a single line of code that wasn’t rewritten.</p>
 
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-lexdata-s-documentation">
+<h1>Welcome to LexData’s documentation!<a class="headerlink" href="#welcome-to-lexdata-s-documentation" title="Permalink to this headline">¶</a></h1>
+<p>This is a small library to create bots, scripts and tools about Wikidata
+Lexemes. It’s philosophy is to have a transparent thin layer on top of the
+internal datastuctures enriched with convenient functions without hiding the
+power of the access to the internals.</p>
+<p>LexData is still in beta phase and there fore some features are missing and
+functions might be renamed in future.</p>
+<p>The code of AitalvivemBot was used as a starting point, but probably theres not
+a single line of code that wasn’t rewritten.</p>
+<p>A simple demonstration about how easy it is to edit Lexems with LexData:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/python3</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="kn">import</span> <span class="nn">LexData</span>
+<span class="kn">from</span> <span class="nn">LexData.language</span> <span class="kn">import</span> <span class="n">en</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+
+<span class="n">repo</span> <span class="o">=</span> <span class="n">LexData</span><span class="o">.</span><span class="n">WikidataSession</span><span class="p">(</span><span class="s2">&quot;MichaelSchoenitzer&quot;</span><span class="p">,</span> <span class="s2">&quot;foobar&quot;</span><span class="p">)</span>
+
+<span class="c1"># Open a Lexeme</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="n">LexData</span><span class="o">.</span><span class="n">Lexeme</span><span class="p">(</span><span class="n">repo</span><span class="p">,</span> <span class="s2">&quot;L2&quot;</span><span class="p">)</span>
+
+<span class="c1"># Access the claims</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">L2</span><span class="o">.</span><span class="n">claims</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="c1"># and Forms</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">L2</span><span class="o">.</span><span class="n">forms</span><span class="p">))</span>
+<span class="n">F1</span> <span class="o">=</span> <span class="n">L2</span><span class="o">.</span><span class="n">forms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">F1</span><span class="o">.</span><span class="n">claims</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="c1"># and senses</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">L2</span><span class="o">.</span><span class="n">senses</span><span class="p">))</span>
+<span class="n">S1</span> <span class="o">=</span> <span class="n">L2</span><span class="o">.</span><span class="n">senses</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">S1</span><span class="o">.</span><span class="n">claims</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+<span class="c1"># Find or create a Lexeme by lemma, language and grammatical form</span>
+<span class="n">L2</span> <span class="o">=</span> <span class="n">LexData</span><span class="o">.</span><span class="n">get_or_create_lexeme</span><span class="p">(</span><span class="n">repo</span><span class="p">,</span> <span class="s2">&quot;first&quot;</span><span class="p">,</span> <span class="n">en</span><span class="p">,</span> <span class="s2">&quot;Q1084&quot;</span><span class="p">)</span>
+
+<span class="c1"># You can easily create forms…</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">L2</span><span class="o">.</span><span class="n">forms</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">L2</span><span class="o">.</span><span class="n">createForm</span><span class="p">(</span><span class="s2">&quot;firsts&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Q146786&quot;</span><span class="p">])</span>
+
+<span class="c1"># …or senses, with or without additional claims</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">L2</span><span class="o">.</span><span class="n">senses</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">L2</span><span class="o">.</span><span class="n">createSense</span><span class="p">(</span>
+        <span class="p">{</span>
+            <span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;Element in an ordered list which comes before all others according to the ordering&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;de&quot;</span><span class="p">:</span> <span class="s2">&quot;einer Ordnung folgend das Element vor allen anderen&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="n">claims</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;P5137&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Q19269277&quot;</span><span class="p">]},</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="LexData.html">LexData</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="LexData.html#module-LexData">Other Classes and Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Entity.html">Entity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Claim.html">Claim</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Language.html">LexData.language</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
     <div class="footer">
       &copy;2019, Michael F. Schönitzer.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 2.2.0</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.1</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

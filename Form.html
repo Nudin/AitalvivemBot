@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <title>&lt;no title&gt; &#8212; LexData  documentation</title>
+    <title>Form &#8212; LexData  documentation</title>
     <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
@@ -14,6 +14,8 @@
     <script src="_static/language_data.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Sense" href="Sense.html" />
+    <link rel="prev" title="Lexeme" href="Lexeme.html" />
    
   <link rel="stylesheet" href="_static/custom.css" type="text/css" />
   
@@ -45,9 +47,14 @@
 
 <h3>Navigation</h3>
 <p class="caption"><span class="caption-text">Contents:</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="LexData.html">LexData</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Entity.html">Entity</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="Entity.html">Entity</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Lexeme.html">Lexeme</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Form</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Sense.html">Sense</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="Claim.html">Claim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Language.html">LexData.language</a></li>
 </ul>
@@ -56,6 +63,10 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
+  <li><a href="Entity.html">Entity</a><ul>
+      <li>Previous: <a href="Lexeme.html" title="previous chapter">Lexeme</a></li>
+      <li>Next: <a href="Sense.html" title="next chapter">Sense</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>
@@ -85,14 +96,27 @@
 
           <div class="body" role="main">
             
-  <p>This is a small library to create bots, scripts and tools about Wikidata
-Lexemes. It’s philosophy is to have a transparent thin layer on top of the
-internal datastuctures enriched with convenient functions without hiding the
-power of the access to the internals.</p>
-<p>LexData is still in beta phase and there fore some features are missing and
-functions might be renamed in future.</p>
-<p>The code of AitalvivemBot was used as a starting point, but probably theres not
-a single line of code that wasn’t rewritten.</p>
+  <div class="section" id="form">
+<h1>Form<a class="headerlink" href="#form" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt id="LexData.Form">
+<em class="property">class </em><code class="sig-prename descclassname">LexData.</code><code class="sig-name descname">Form</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">repo</span><span class="p">:</span> <span class="n">LexData.wikidatasession.WikidataSession</span></em>, <em class="sig-param"><span class="n">form</span><span class="p">:</span> <span class="n">Dict</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LexData.Form" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="Entity.html#LexData.entity.Entity" title="LexData.entity.Entity"><code class="xref py py-class docutils literal notranslate"><span class="pre">LexData.entity.Entity</span></code></a></p>
+<p>Wrapper around a dict to represent a From</p>
+<dl class="py method">
+<dt id="LexData.Form.form">
+<em class="property">property </em><code class="sig-name descname">form</code><a class="headerlink" href="#LexData.Form.form" title="Permalink to this definition">¶</a></dt>
+<dd><p>String of the form value (“representation”)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 
 
           </div>
@@ -109,7 +133,7 @@ a single line of code that wasn’t rewritten.</p>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
-      <a href="_sources/intro.rst.txt"
+      <a href="_sources/Form.rst.txt"
           rel="nofollow">Page source</a>
     </div>
 

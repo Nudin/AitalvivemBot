@@ -14,12 +14,13 @@ A simple demonstration about how easy it is to edit Lexems with LexData:
     :language: python
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Contents:
 
    LexData
-   Lexeme
-   Languages
+   Entity
+   Claim
+   Language
 
 Indices and tables
 ==================
