@@ -103,12 +103,27 @@
 <em class="property">class </em><code class="sig-prename descclassname">LexData.</code><code class="sig-name descname">Lexeme</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">repo</span><span class="p">:</span> <span class="n">LexData.wikidatasession.WikidataSession</span></em>, <em class="sig-param"><span class="n">idLex</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LexData.Lexeme" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="Entity.html#LexData.entity.Entity" title="LexData.entity.Entity"><code class="xref py py-class docutils literal notranslate"><span class="pre">LexData.entity.Entity</span></code></a></p>
 <p>Wrapper around a dict to represent a Lexeme</p>
+<p>This is the main class of LexData. It represents an existing lexeme on
+Wikidata. In Wikidata all entities are stored in JSON format. Since JSON
+can be mapped naturally to python dictionaries a lexeme can be represented
+by a dictionary. All changes to a lexeme are changes to values in this
+dictionary.  To allow access to all parts of lexemes while at the same time
+making common operations such as adding claims or forms as easily as
+possible, lexemes and other entities are handled by classes that inherit
+from <cite>dict</cite>. You can access arbitrary parts of the lexeme with the usual
+dictionary syntax <cite>lexeme[key]</cite> or with the function <code class="xref py py-func docutils literal notranslate"><span class="pre">dict.get()</span></code>.</p>
+<p>If you modify the content of the dictionary you have to upload the new
+version of the lexeme to Wikidata. If you use the functions of the class
+<cite>Lexeme</cite> the data is uploaded automatically.</p>
 <dl class="py method">
 <dt id="LexData.Lexeme.createClaims">
 <code class="sig-name descname">createClaims</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">claims</span><span class="p">:</span> <span class="n">Dict<span class="p">[</span>str<span class="p">, </span>List<span class="p">[</span>str<span class="p">]</span><span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LexData.Lexeme.createClaims" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add claims to the Lexeme.</p>
-<p>createClaim() is deprecated and might be removed in future versions.
-Use Entity.addClaims() instead.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>createClaim() is deprecated and might be removed in future
+versions.  Use Entity.addClaims() instead.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>claims</strong> – The set of claims to be added</p>
@@ -119,13 +134,22 @@ Use Entity.addClaims() instead.</p>
 <dl class="py method">
 <dt id="LexData.Lexeme.createForm">
 <code class="sig-name descname">createForm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">form</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">infosGram</span><span class="p">:</span> <span class="n">List<span class="p">[</span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">language</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference internal" href="Language.html#LexData.language.Language" title="LexData.language.Language">LexData.language.Language</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">claims</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>List<span class="p">[</span>LexData.claim.Claim<span class="p">]</span><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#LexData.Lexeme.createForm" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a form for the lexeme.</p>
+<dd><p>Create a new form for the lexeme. Optionally claims can be added to the
+new form.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L123</span><span class="o">.</span><span class="n">createForm</span><span class="p">(</span><span class="s2">&quot;Form&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;Q100&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>form</strong> (<em>str</em>) – the new form to add</p></li>
 <li><p><strong>infosGram</strong> (<em>List</em><em>[</em><em>str</em><em>]</em>) – grammatical features</p></li>
-<li><p><strong>language</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="Language.html#LexData.language.Language" title="LexData.language.Language"><em>Language</em></a><em>]</em>) – the language of the form</p></li>
+<li><p><strong>language</strong> (<em>Optional</em><em>[</em><a class="reference internal" href="Language.html#LexData.language.Language" title="LexData.language.Language"><em>Language</em></a><em>]</em>) – the language of the form. This normally is the same as
+the language of the lexeme – this is also the default value.</p></li>
 <li><p><strong>claims</strong> – claims to add to the new form</p></li>
 </ul>
 </dd>
@@ -141,7 +165,15 @@ Use Entity.addClaims() instead.</p>
 <dl class="py method">
 <dt id="LexData.Lexeme.createSense">
 <code class="sig-name descname">createSense</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">glosses</span><span class="p">:</span> <span class="n">Dict<span class="p">[</span>str<span class="p">, </span>str<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">claims</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>List<span class="p">[</span>LexData.claim.Claim<span class="p">]</span><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#LexData.Lexeme.createSense" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a sense for the lexeme.</p>
+<dd><p>Create a new sense for the lexeme. Optionally claims can be added to the
+new sense.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">L123</span><span class="o">.</span><span class="n">createSense</span><span class="p">({</span><span class="s2">&quot;en&quot;</span><span class="p">:</span> <span class="s2">&quot;English gloss&quot;</span><span class="p">},</span> <span class="n">claims</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;P7&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Q100&quot;</span><span class="p">]})</span>
+</pre></div>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -169,13 +201,12 @@ Use Entity.addClaims() instead.</p>
 <dl class="py method">
 <dt id="LexData.Lexeme.getLex">
 <code class="sig-name descname">getLex</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">idLex</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LexData.Lexeme.getLex" title="Permalink to this definition">¶</a></dt>
-<dd><p>This function gets and returns the data of a lexeme for a given id.</p>
+<dd><p>This function retrieves the content of the lexeme and synchronizes the
+local object. This function can be called when the lexeme has be
+changed by a different program or user.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>idLex</strong> (<em>str</em>) – Lexeme identifier (example: “L2”)</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Simplified object representation of Lexeme</p>
 </dd>
 </dl>
 </dd></dl>
@@ -183,7 +214,7 @@ Use Entity.addClaims() instead.</p>
 <dl class="py method">
 <dt id="LexData.Lexeme.language">
 <em class="property">property </em><code class="sig-name descname">language</code><a class="headerlink" href="#LexData.Lexeme.language" title="Permalink to this definition">¶</a></dt>
-<dd><p>The language code of the lexeme as string</p>
+<dd><p>The language code of the lexeme as string (Example: “en”)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>str</p>
@@ -195,6 +226,8 @@ Use Entity.addClaims() instead.</p>
 <dt id="LexData.Lexeme.lemma">
 <em class="property">property </em><code class="sig-name descname">lemma</code><a class="headerlink" href="#LexData.Lexeme.lemma" title="Permalink to this definition">¶</a></dt>
 <dd><p>The lemma of the lexeme as string</p>
+<p>Note: A lexeme can have multiple lemmas (for example for different
+writing systems), this function only returns the first.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>str</p>
@@ -245,7 +278,7 @@ user.</p>
       &copy;2019, Michael F. Schönitzer.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

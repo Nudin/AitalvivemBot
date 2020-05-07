@@ -110,6 +110,22 @@ by use of the low level API call Lexeme.update_from_json().</p>
 <dt id="LexData.Claim.numeric_rank">
 <em class="property">property </em><code class="sig-name descname">numeric_rank</code><a class="headerlink" href="#LexData.Claim.numeric_rank" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the rank of the claim as integer.</p>
+<p>Returns a integer representation of the claims rank:
+* 0 for normal rank
+* 1 for preferred rank
+* -1 for deprecated rank</p>
+<p>Using this allows for easier comparing and filtering.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><p></p></dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">if</span> <span class="n">claim</span><span class="o">.</span><span class="n">numeric_rank</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">return</span> <span class="n">claim</span><span class="o">.</span><span class="n">pure_value</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">else</span><span class="p">:</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="n">logger</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;No valid value found.&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="k">return</span> <span class="kc">None</span>
+</pre></div>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>int</p>
@@ -120,7 +136,7 @@ by use of the low level API call Lexeme.update_from_json().</p>
 <dl class="py method">
 <dt id="LexData.Claim.property">
 <em class="property">property </em><code class="sig-name descname">property</code><a class="headerlink" href="#LexData.Claim.property" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the id of the property of the claim.</p>
+<dd><p>Return the id of the property of the claim. Example: “P27”</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>str</p>
@@ -154,6 +170,10 @@ the value.</p>
 <dt id="LexData.Claim.rank">
 <em class="property">property </em><code class="sig-name descname">rank</code><a class="headerlink" href="#LexData.Claim.rank" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the rank of the claim.</p>
+<p>The rank is one of:
+* “normal”
+* “preferred”
+* “deprecated”</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>str</p>
@@ -164,7 +184,24 @@ the value.</p>
 <dl class="py method">
 <dt id="LexData.Claim.type">
 <em class="property">property </em><code class="sig-name descname">type</code><a class="headerlink" href="#LexData.Claim.type" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the data type of the claim.</p>
+<dd><p>Return the data type of the claim as string.</p>
+<p>Currently the following datatypes are used in Wikidata:
+* commonsMedia
+* geo-shape
+* globe-coordinate
+* math
+* monolingualtext
+* musical-notation
+* quantity
+* string
+* tabular-data
+* time
+* url
+* wikibase-form
+* wikibase-item
+* wikibase-lexeme
+* wikibase-property
+* wikibase-sense</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>str</p>
@@ -175,7 +212,7 @@ the value.</p>
 <dl class="py method">
 <dt id="LexData.Claim.value">
 <em class="property">property </em><code class="sig-name descname">value</code><a class="headerlink" href="#LexData.Claim.value" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the value of the claim. The type depends on the data type.</p>
+<dd><p>Return the value of the claim. The return type depends on the data type.</p>
 </dd></dl>
 
 </dd></dl>
@@ -193,7 +230,7 @@ the value.</p>
       &copy;2019, Michael F. Schönitzer.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

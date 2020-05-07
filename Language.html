@@ -96,6 +96,14 @@ and QIDs for easier use.</p>
 <em class="property">class </em><code class="sig-prename descclassname">LexData.language.</code><code class="sig-name descname">Language</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">short</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">qid</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#LexData.language.Language" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Dataclass representing a language</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>short</strong> (<em>str</em>) – Wikimedia Language code (Example: “en”)</p></li>
+<li><p><strong>qid</strong> (<em>str</em>) – Id of the wikidata item specifying the language (Example: “Q1860”)</p></li>
+</ul>
+</dd>
+</dl>
 <dl class="py attribute">
 <dt id="LexData.language.Language.qid">
 <code class="sig-name descname">qid</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#LexData.language.Language.qid" title="Permalink to this definition">¶</a></dt>
@@ -110,7 +118,13 @@ and QIDs for easier use.</p>
 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@dataclass</span>
 <span class="k">class</span> <span class="nc">Language</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Dataclass representing a language&quot;&quot;&quot;</span>
+    <span class="sd">&quot;&quot;&quot;Dataclass representing a language</span>
+
+<span class="sd">    :param short: Wikimedia Language code (Example: &quot;en&quot;)</span>
+<span class="sd">    :type  short: str</span>
+<span class="sd">    :param qid: Id of the wikidata item specifying the language (Example: &quot;Q1860&quot;)</span>
+<span class="sd">    :type  qid: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="n">short</span><span class="p">:</span> <span class="nb">str</span>
     <span class="n">qid</span><span class="p">:</span> <span class="nb">str</span>
@@ -135,7 +149,7 @@ and QIDs for easier use.</p>
       &copy;2019, Michael F. Schönitzer.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

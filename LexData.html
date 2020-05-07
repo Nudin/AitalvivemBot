@@ -105,6 +105,9 @@ on a separate page:</p>
 <dt id="LexData.create_lexeme">
 <code class="sig-prename descclassname">LexData.</code><code class="sig-name descname">create_lexeme</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">repo</span><span class="p">:</span> <span class="n">LexData.wikidatasession.WikidataSession</span></em>, <em class="sig-param"><span class="n">lemma</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">lang</span><span class="p">:</span> <span class="n"><a class="reference internal" href="Language.html#LexData.language.Language" title="LexData.language.Language">LexData.language.Language</a></span></em>, <em class="sig-param"><span class="n">catLex</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">claims</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; LexData.lexeme.Lexeme<a class="headerlink" href="#LexData.create_lexeme" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creates a lexeme</p>
+<p>This function will created a lexeme on Wikidata with the given lemma,
+language and lexicographical category. Optionally claims can be added to
+the lexeme. The created lexeme is returned and can be edited further.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -149,7 +152,7 @@ on a separate page:</p>
 <dl class="py function">
 <dt id="LexData.search_lexemes">
 <code class="sig-prename descclassname">LexData.</code><code class="sig-name descname">search_lexemes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">repo</span><span class="p">:</span> <span class="n">LexData.wikidatasession.WikidataSession</span></em>, <em class="sig-param"><span class="n">lemma</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">lang</span><span class="p">:</span> <span class="n"><a class="reference internal" href="Language.html#LexData.language.Language" title="LexData.language.Language">LexData.language.Language</a></span></em>, <em class="sig-param"><span class="n">catLex</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; List<span class="p">[</span>LexData.lexeme.Lexeme<span class="p">]</span><a class="headerlink" href="#LexData.search_lexemes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Search for a lexeme by it’s label, language and lexical category.</p>
+<dd><p>Search for lexemes by their label, language and lexical category.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -182,7 +185,7 @@ on a separate page:</p>
       &copy;2019, Michael F. Schönitzer.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |

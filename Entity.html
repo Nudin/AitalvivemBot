@@ -104,6 +104,17 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">dict</span></code></p>
 <p>Base class for all types of entities – currently: Lexeme, Form, Sense.
 Not yet implemented: Item, Property.</p>
+<p>In Wikidata all entities are stored in JSON format. Since JSON can be
+mapped naturally to python dictionaries a lexeme can be represented by a
+dictionary. All changes to an entity are changes to values in this
+dictionary.  To allow accessing all information in an entity while at the
+same time making common operations as easily as possible, all entities are
+handled by classes that inherit from <cite>dict</cite>. You can access arbitrary parts
+of the lexeme with the usual dictionary syntax <cite>lexeme[key]</cite> or with the
+function <code class="xref py py-func docutils literal notranslate"><span class="pre">dict.get()</span></code>.</p>
+<p>If you modify the content of the dictionary you have to upload the new
+version of the entity to Wikidata. If you use the functions of the class
+the data is uploaded automatically.</p>
 <dl class="py method">
 <dt id="LexData.entity.Entity.addClaims">
 <code class="sig-name descname">addClaims</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">claims</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>List<span class="p">[</span>LexData.claim.Claim<span class="p">]</span><span class="p">, </span>Dict<span class="p">[</span>str<span class="p">, </span>List<span class="p">[</span>str<span class="p">]</span><span class="p">]</span><span class="p">]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#LexData.entity.Entity.addClaims" title="Permalink to this definition">¶</a></dt>
@@ -131,7 +142,7 @@ currently only supports datatypes of kind Entity.</p>
 <dl class="py method">
 <dt id="LexData.entity.Entity.claims">
 <em class="property">property </em><code class="sig-name descname">claims</code><a class="headerlink" href="#LexData.entity.Entity.claims" title="Permalink to this definition">¶</a></dt>
-<dd><p>All the claims of the Entity</p>
+<dd><p>All claims of the entity</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>Dict[str, List[<a class="reference internal" href="Claim.html#LexData.Claim" title="LexData.Claim">Claim</a>]]</p>
@@ -159,7 +170,7 @@ currently only supports datatypes of kind Entity.</p>
       &copy;2019, Michael F. Schönitzer.
       
       |
-      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.1</a>
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.3</a>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
       
       |
